@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cricket App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ── NAV ── -->
+  <nav>
+    <span class="brand">🏏 Cricket App</span>
+    <div id="nav-auth">
+      <button onclick="showPage('login')">Login</button>
+      <button onclick="showPage('register')">Register</button>
+    </div>
+    <div id="nav-user" class="hidden">
+      <span id="nav-username"></span>
+      <button onclick="showPage('profile')">My Profile</button>
+      <button onclick="showPage('tournaments')">Tournaments</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- ── PAGES ── -->
+  <main>
+
+    <!-- HOME -->
+    <section id="page-home">
+      <h1>Welcome to Cricket App</h1>
+      <p>Manage tournaments, teams and matches — all in one place.</p>
+      <div class="cta-row">
+        <button onclick="showPage('login')">Login</button>
+        <button onclick="showPage('register')">Register</button>
+        <button onclick="showPage('tournaments')">Browse Tournaments</button>
+      </div>
+    </section>
+
+    <!-- REGISTER -->
+    <section id="page-register" class="hidden">
+      <h2>Register</h2>
+      <div class="card form-card">
+        <label>Full Name<input id="reg-name" type="text" placeholder="Your name" /></label>
+        <label>Email<input id="reg-email" type="email" placeholder="you@example.com" /></label>
+        <label>Password<input id="reg-password" type="password" placeholder="Password" /></label>
+        <label>Role
+          <select id="reg-role">
+            <option value="player">Player</option>
+            <option value="team_organizer">Team Organizer</option>
+            <option value="tournament_organizer">Tournament Organizer</option>
+          </select>
+        </label>
+        <button onclick="register()">Register</button>
+        <p>Already have an account? <a href="#" onclick="showPage('login')">Login</a></p>
+        <div id="reg-error" class="error hidden"></div>
+      </div>
+    </section>
+
+    <!-- LOGIN -->
+    <section id="page-login" class="hidden">
+      <h2>Login</h2>
+      <div class="card form-card">
+        <label>Email<input id="login-email" type="email" placeholder="you@example.com" /></label>
+        <label>Password<input id="login-password" type="password" placeholder="Password" /></label>
+        <button onclick="login()">Login</button>
+        <p>New here? <a href="#" onclick="showPage('register')">Register</a></p>
+        <div id="login-error" class="error hidden"></div>
+      </div>
+    </section>
+
+    <!-- TOURNAMENTS LIST -->
+    <section id="page-tournaments" class="hidden">
+      <div class="page-header">
+        <h2>Tournaments</h2>
+        <div>
+          <div class="search-row">
+            <input id="tour-search-id" type="number" placeholder="Search by ID…" />
+            <button onclick="searchTournamentById()">Find</button>
+          </div>
+          <button id="btn-create-tournament" class="hidden" onclick="showPage('create-tournament')">+ New Tournament</button>
+        </div>
+      </div>
+      <div id="tournaments-list" class="grid"></div>
+    </section>
+
+    <!-- TOURNAMENT DETAIL -->
+    <section id="page-tournament-detail" class="hidden">
+      <button class="back-btn" onclick="showPage('tournaments')">← Back</button>
+      <div id="tournament-detail-content"></div>
+    </section>
+
+    <!-- CREATE TOURNAMENT -->
+    <section id="page-create-tournament" class="hidden">
+      <h2>Create Tournament</h2>
+      <div class="card form-card">
+        <label>Name<input id="ct-name" type="text" placeholder="Tournament name" /></label>
+        <label>Description<textarea id="ct-description" placeholder="Optional description"></textarea></label>
+        <label>Location<input id="ct-location" type="text" placeholder="City / Venue" /></label>
+        <label>Start Date<input id="ct-start" type="date" /></label>
+        <label>End Date<input id="ct-end" type="date" /></label>
+        <button onclick="createTournament()">Create</button>
+        <div id="ct-error" class="error hidden"></div>
+      </div>
+    </section>
+
+    <!-- CREATE TEAM -->
+    <section id="page-create-team" class="hidden">
+      <h2>Create Team</h2>
+      <div class="card form-card">
+        <p id="ct2-tournament-label"></p>
+        <label>Team Name<input id="ct2-name" type="text" placeholder="Team name" /></label>
+        <input id="ct2-tournament-id" type="hidden" />
+        <button onclick="createTeam()">Create Team</button>
+        <div id="ct2-error" class="error hidden"></div>
+      </div>
+    </section>
+
+    <!-- INVITE PLAYER -->
+    <section id="page-invite-player" class="hidden">
+      <h2>Invite Player</h2>
+      <div class="card form-card">
+        <p id="invite-team-label"></p>
+        <label>Player ID<input id="invite-player-id" type="number" placeholder="Player's user ID" /></label>
+        <input id="invite-team-id" type="hidden" />
+        <button onclick="invitePlayer()">Send Invitation</button>
+        <div id="invite-error" class="error hidden"></div>
+        <div id="invite-success" class="success hidden"></div>
+      </div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="page-profile" class="hidden">
+      <h2>My Profile</h2>
+      <div id="profile-content"></div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

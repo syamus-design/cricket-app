@@ -1,0 +1,162 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+  min-height: 100vh;
+}
+
+/* ── Nav ── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e3a5f;
+  color: #fff;
+  padding: .75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav .brand { font-size: 1.3rem; font-weight: 700; letter-spacing: .5px; }
+nav button {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 6px;
+  padding: .4rem .9rem;
+  cursor: pointer;
+  margin-left: .5rem;
+  font-size: .85rem;
+  transition: background .2s;
+}
+nav button:hover { background: rgba(255,255,255,.25); }
+#nav-user span { margin-right: .5rem; font-weight: 600; }
+
+/* ── Main ── */
+main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+
+section h1 { font-size: 2rem; margin-bottom: .5rem; }
+section h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+/* ── Utility ── */
+.hidden { display: none !important; }
+
+/* ── Cards ── */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  margin-bottom: 1rem;
+}
+.form-card { max-width: 480px; }
+.form-card label { display: flex; flex-direction: column; margin-bottom: .9rem; font-weight: 600; font-size: .9rem; gap: .3rem; }
+.form-card input, .form-card select, .form-card textarea {
+  font-weight: 400;
+  padding: .5rem .75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 7px;
+  font-size: .95rem;
+  outline: none;
+  transition: border-color .2s;
+}
+.form-card input:focus, .form-card select:focus, .form-card textarea:focus { border-color: #3182ce; }
+.form-card textarea { min-height: 80px; resize: vertical; }
+.form-card button, .form-card > button { width: 100%; margin-top: .4rem; }
+.form-card p { margin-top: .6rem; font-size: .9rem; text-align: center; }
+.form-card a { color: #3182ce; text-decoration: none; }
+
+/* ── Buttons ── */
+button {
+  padding: .5rem 1.1rem;
+  border: none;
+  border-radius: 7px;
+  background: #2b6cb0;
+  color: #fff;
+  cursor: pointer;
+  font-size: .9rem;
+  font-weight: 600;
+  transition: background .2s, transform .1s;
+}
+button:hover { background: #2c5282; }
+button:active { transform: scale(.97); }
+.btn-sm { padding: .3rem .7rem; font-size: .8rem; }
+.btn-danger { background: #c53030; }
+.btn-danger:hover { background: #9b2c2c; }
+.btn-success { background: #276749; }
+.btn-success:hover { background: #1c4532; }
+
+/* ── Messages ── */
+.error   { color: #c53030; background: #fff5f5; border: 1px solid #fc8181; border-radius: 6px; padding: .5rem .75rem; margin-top: .5rem; font-size: .85rem; }
+.success { color: #276749; background: #f0fff4; border: 1px solid #9ae6b4; border-radius: 6px; padding: .5rem .75rem; margin-top: .5rem; font-size: .85rem; }
+
+/* ── CTA ── */
+.cta-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.cta-row button { font-size: 1rem; padding: .65rem 1.4rem; }
+
+/* ── Page header ── */
+.page-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem; margin-bottom: 1rem; }
+.search-row { display: flex; gap: .5rem; margin-bottom: .5rem; }
+.search-row input { padding: .45rem .75rem; border: 1px solid #cbd5e0; border-radius: 7px; font-size: .9rem; }
+
+/* ── Grid ── */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+
+/* ── Tournament card ── */
+.tour-card { cursor: pointer; transition: box-shadow .2s, transform .1s; }
+.tour-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,.14); transform: translateY(-2px); }
+.tour-card h3 { font-size: 1.1rem; margin-bottom: .35rem; }
+.tour-card .meta { font-size: .82rem; color: #718096; margin-bottom: .25rem; }
+.badge {
+  display: inline-block;
+  padding: .2rem .6rem;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.badge-upcoming  { background: #ebf8ff; color: #2b6cb0; }
+.badge-ongoing   { background: #f0fff4; color: #276749; }
+.badge-completed { background: #e2e8f0; color: #4a5568; }
+.badge-cancelled { background: #fff5f5; color: #c53030; }
+
+/* ── Detail sections ── */
+.back-btn { background: transparent; color: #2b6cb0; border: 1px solid #2b6cb0; margin-bottom: 1rem; }
+.back-btn:hover { background: #ebf8ff; }
+.detail-header { margin-bottom: 1.25rem; }
+.detail-header h2 { font-size: 1.8rem; }
+.section-title { font-size: 1.1rem; font-weight: 700; margin: 1.25rem 0 .6rem; border-bottom: 2px solid #e2e8f0; padding-bottom: .3rem; }
+.players-list, .matches-list { list-style: none; }
+.players-list li, .matches-list li { padding: .45rem 0; border-bottom: 1px solid #e2e8f0; font-size: .9rem; display: flex; align-items: center; gap: .5rem; }
+
+/* ── Profile ── */
+.profile-info { display: flex; flex-direction: column; gap: .3rem; font-size: .95rem; }
+.profile-info strong { font-size: 1.5rem; }
+.stat-row { display: flex; gap: 1.5rem; margin-top: .75rem; }
+.stat { text-align: center; }
+.stat .num { font-size: 2rem; font-weight: 700; color: #2b6cb0; }
+.stat .lbl { font-size: .75rem; color: #718096; }
+
+/* ── Match row ── */
+.match-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+.match-teams { font-weight: 600; }
+.match-score { font-size: .85rem; color: #4a5568; }
+
+/* ── Empty state ── */
+.empty { color: #a0aec0; font-style: italic; font-size: .9rem; padding: .5rem 0; }
+
+/* ── Table ── */
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th, td { text-align: left; padding: .55rem .75rem; border-bottom: 1px solid #e2e8f0; }
+th { background: #edf2f7; font-weight: 700; }
+tr:hover td { background: #f7fafc; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  nav { flex-direction: column; gap: .5rem; }
+  .page-header { flex-direction: column; align-items: flex-start; }
+  .cta-row { flex-direction: column; }
+}
